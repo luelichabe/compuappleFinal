@@ -1,0 +1,277 @@
+/* ------------- Carousel Bienvenida -------------*/
+#carouselBienvenida {
+    margin: 0;
+    width: 100%;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 500px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #000;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 25%;
+}
+
+/* Cambia el color de los indicadores del carrusel */
+.carousel-indicators .active {
+    background-color: rgba(160, 149, 149, 0.583)
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    max-width: 90%;
+    width: 500px;
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+    margin: 0;
+}
+
+/* Tamaño del texto */
+.carousel-caption h5 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-inner {
+        height: 300px;
+    }
+
+    .carousel-item {
+        height: 300px;
+    }
+
+    .carousel-caption {
+        bottom: 35px;
+        padding: 5px;
+        width: 300px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 16px;
+    }
+
+    .carousel-caption p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-inner {
+        height: 200px;
+    }
+
+    .carousel-item {
+        height: 200px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 12px;
+    }
+
+    .carousel-caption p {
+        font-size: 10px;
+    }
+}
+
+
+/* ------------- Productos Destacados ------------- */
+/* Configura el contenedor para que sea un grid de máximo 6 elementos */
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-rows: auto auto;
+    gap: 15px;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Estiliza las tarjetas individuales */
+.product-destacado {
+    background-color: #ffffff;
+    /* Color de fondo fijo para modo claro */
+    color: #020202;
+    /* Color de texto fijo */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    max-width: 180px;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+}
+
+/* Efecto hover para las tarjetas */
+.product-destacado:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estiliza el área de imagen */
+.product-destacado .img-area img {
+    width: 100%;
+    max-height: 120px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estiliza la información */
+.product-destacado .info {
+    padding: 8px;
+}
+
+.product-destacado .info h3 {
+    font-size: 1.25rem;
+    color: #020202;
+    /* Color fijo para el texto */
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    #productos-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .product-destacado {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #productos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .product-destacado {
+        width: 100%;
+    }
+}
+
+
+/* ------------- Categorías ------------- */
+.TituloCategorias {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+
+.scroll-container-categorias {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.categorias-wrapper {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+    overflow-x: auto;
+    margin: 20px;
+    border: none;
+}
+
+.categoria-card {
+    position: relative;
+    width: 200px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.categoria-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de imagen */
+.img-container {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.categoria-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.categoria-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height 0.3s ease;
+}
+
+/* Efecto de expansión al pasar el mouse */
+.categoria-card:hover h3 {
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Asegurar que el texto esté centrado verticalmente al expandirse */
+.categoria-card h3 span {
+    display: block;
+    text-align: center;
+}
+
+/*mensaje cuando no hay productos por el que se quiere filtrar*/
+.no-products-message {
+    font-size: 1.5em;
+    color: #888;
+    text-align: center;
+    margin: 20px;
+}

@@ -1,0 +1,291 @@
+/* Oculto */
+.hidden {
+    display: none;
+}
+
+/* Formulario de producto */
+#product-form-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+#product-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#product-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#product-form button[type="submit"] {
+    background-color: #000000;
+    color: white;
+}
+
+.product-checkbox {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Estilo del botón de eliminar seleccionados */
+#delete-selected-btn {
+    align-self: flex-start;
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+
+#delete-selected-btn:hover {
+    background-color: #5c5857;
+}
+
+/* Estilo general del modal (oculto por defecto) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Estilo para ocultar el modal por defecto */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #888;
+    padding: 15px 25px;
+    width: 80%;
+    max-width: 450px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Estilo de los campos del formulario */
+#productForm label {
+    display: block;
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#productForm input[type="text"],
+#productForm input[type="number"],
+#productForm input[type="file"],
+#productForm select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+#productForm button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#productForm button[type="submit"]:hover {
+    background-color: #638ea8;
+}
+
+/* Botón de cierre (la 'X') */
+.close {
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+/* Título del modal */
+#form-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Mejoras en el espacio del contenido */
+.modal-content h3 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+/* Estilo del botón de eliminar seleccionados */
+#delete-selected-btn {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: auto;
+    align-self: flex-start;
+}
+
+#delete-selected-btn:hover {
+    background-color: #638ea8;
+}
+
+/* Estilo para el checkbox de eliminar */
+.checkbox-eliminar {
+    margin-right: 10px;
+}
+
+/* Mejora la visibilidad del checkbox */
+.producto-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Estilo para la ventana de confirmación */
+.confirmation-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenido del modal de confirmación */
+.confirmation-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Botón de cierre en la esquina superior derecha */
+.confirmation-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Botones de confirmación y cancelación */
+.confirmation-confirm-button {
+    background-color: #d9534f;
+    /* Rojo */
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.confirmation-cancel-button {
+    background-color: #000;
+    /* Negro */
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.confirmation-confirm-button:hover {
+    background-color: #c9302c;
+}
+
+.confirmation-cancel-button:hover {
+    background-color: #333;
+}
+
+
+/* Estilo para los mensajes de error */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.input-error {
+    border-color: red;
+}
+
+button.btn.btn-actualizar {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.btn.btn-actualizar:hover {
+    background-color: #638ea8;
+}
