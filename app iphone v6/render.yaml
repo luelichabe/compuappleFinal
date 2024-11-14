@@ -1,0 +1,6 @@
+build:
+  command: "pip install -r requirements.txt"  # Instalar dependencias
+
+deploy:
+  predeploy: "flask db upgrade"  # Ejecutar migraciones en Render
+  command: "gunicorn app:app"   # Iniciar la aplicación con Gunicorn (ajusta si es necesario)

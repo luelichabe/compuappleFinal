@@ -14,10 +14,12 @@ import MySQLdb
 import MySQLdb.cursors
 import random
 import secrets
+from flask_migrate import Migrate
 ##check out carrito##
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+
 
 app = Flask(__name__)
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
@@ -51,6 +53,9 @@ def connection():
     )
     return conn
 # Conectar a la base de datos
+
+migrate = Migrate(app, db_config)
+
 def connect_db():
     return mysql.connector.connect(**db_config)
 # Inicializar el módulo de usuarios y pasar la configuración de la DB
