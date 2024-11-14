@@ -7,18 +7,20 @@ import pymysql
 import mysql
 import MySQLdb
 import MySQLdb.cursors
+import os
 
 app = Flask(__name__)
+
 def connection():
-  # Configuración de la conexión a la base de datos
-  conn = pymysql.connect(
-   host= '193.203.175.121',
-    user= 'u314848509_compuapple',  
-    password= 'p,^.PKG2Jd!p6-F',
-    # port= 3307,
-    database= "u314848509_compuapple",
-  )
-  return conn
+    # Configuración de la conexión a la base de datos usando variables de entorno
+    conn = pymysql.connect(
+        host=os.getenv('db_host'),
+        user=os.getenv('db_user'),
+        password=os.getenv('db_password'),
+        database=os.getenv('db_name'),
+        cursorclass=MySQLdb.cursors.DictCursor
+    )
+    return conn
 
 @app.route('/mostrar_tabla')
 def mostrar_tabla():

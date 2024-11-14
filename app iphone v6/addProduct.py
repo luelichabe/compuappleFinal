@@ -2,23 +2,26 @@ from flask import redirect, request, jsonify, render_template, url_for, flash
 from werkzeug.utils import secure_filename
 import pymysql, mysql
 import os
+import MySQLdb
+import MySQLdb.cursors
 # Configuración de la conexión a la base de datos
+# Configuración de la base de datos
 db_config = {
-    'host': '193.203.175.121',
-    'user': 'u314848509_compuapple',
-    'password': 'p,^.PKG2Jd!p6-F',
-    'database': 'u314848509_compuapple',
+    'host': os.getenv('db_host'),
+    'user': os.getenv('db_user'),
+    'password': os.getenv('db_password'),
+    'database': os.getenv('db_name')
 }
 def connection():
-  # Configuración de la conexión a la base de datos
-  conn = pymysql.connect(
-      host= '193.203.175.121',
-    user= 'u314848509_compuapple',  
-    password= 'p,^.PKG2Jd!p6-F',
-    # port= 3307,
-    database= "u314848509_compuapple"
-  )
-  return conn
+    # Configuración de la conexión a la base de datos usando variables de entorno
+    conn = pymysql.connect(
+        host=os.getenv('db_host'),
+        user=os.getenv('db_user'),
+        password=os.getenv('db_password'),
+        database=os.getenv('db_name'),
+        cursorclass=MySQLdb.cursors.DictCursor
+    )
+    return conn
 # Conectar a la base de datos
 def connect_db():
     return mysql.connector.connect(**db_config)

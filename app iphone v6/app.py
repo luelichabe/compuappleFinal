@@ -13,6 +13,7 @@ import mysql
 import MySQLdb
 import MySQLdb.cursors
 import random
+import secrets
 ##check out carrito##
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -20,6 +21,9 @@ from email.mime.text import MIMEText
 
 app = Flask(__name__)
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
+
+# Configuración de la clave secreta
+app.secret_key = os.getenv('SECRET_KEY', 'clave_por_defecto')  # Usa un valor por defecto solo para pruebas
 
 # se guardan las imágenes subidas
 UPLOAD_FOLDER = 'static/uploads/'  # Carpeta de las imágenes
@@ -29,23 +33,23 @@ app.secret_key = 'compu_apple'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Configuración de la conexión a la base de datos
+# Configuración de la base de datos
 db_config = {
-    'host': '193.203.175.121',
-    'user': 'u314848509_compuapple',
-    'password': 'p,^.PKG2Jd!p6-F',
-    'database': 'u314848509_compuapple'
+    'host': os.getenv('db_host'),
+    'user': os.getenv('db_user'),
+    'password': os.getenv('db_password'),
+    'database': os.getenv('db_name')
 }
 def connection():
-  # Configuración de la conexión a la base de datos
-  conn = pymysql.connect(
-    host= '193.203.175.121',
-    user= 'u314848509_compuapple',  
-    password= 'p,^.PKG2Jd!p6-F',
-    # port= 3307,
-    database= "u314848509_compuapple",
-    cursorclass=MySQLdb.cursors.DictCursor
-  )
-  return conn
+    # Configuración de la conexión a la base de datos usando variables de entorno
+    conn = pymysql.connect(
+        host=os.getenv('db_host'),
+        user=os.getenv('db_user'),
+        password=os.getenv('db_password'),
+        database=os.getenv('db_name'),
+        cursorclass=MySQLdb.cursors.DictCursor
+    )
+    return conn
 # Conectar a la base de datos
 def connect_db():
     return mysql.connector.connect(**db_config)
